@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: { paddingHorizontal: 20 },
   header: {
-    paddingTop: Constants.statusBarHeight + 12,
+    marginTop: Constants.statusBarHeight + 12,
     flexDirection: "row",
     alignItems: "center",
     gap: 5,

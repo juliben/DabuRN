@@ -18,9 +18,6 @@
     "android": {
       "package": "com.julietaben.Dabu"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
     "extra": {
       "eas": {
         "projectId": "06b1ac01-b05b-4cfd-b1c0-0d977898df39"

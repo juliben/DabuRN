@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { Language } from "../App";
 
@@ -8,6 +9,7 @@ const EnEsButton = () => {
 
   const handlePress = () => {
     setLanguage(language === "es" ? "en" : "es");
+    AsyncStorage.setItem("language", language === "es" ? "en" : "es");
   };
 
   return (

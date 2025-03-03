@@ -1,7 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import WordDetails from "./screens/WordDetails";
 import SavedWords from "./screens/SavedWords";
@@ -51,6 +52,21 @@ const StackNavigator = () => (
 
 export default function App() {
   const [language, setLanguage] = useState("es");
+
+  const loadLanguage = async () => {
+    try {
+      const storedLanguage = await AsyncStorage.getItem("language");
+      if (storedLanguage) {
+        setLanguage(storedLanguage);
+      }
+    } catch (error) {
+      console.error("Error al cargar el idioma:", error);
+    }
+  };
+
+  useEffect(() => {
+    loadLanguage();
+  }, []);
 
   return (
     <BookmarksProvider>
